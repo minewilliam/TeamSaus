@@ -2,10 +2,10 @@
 
 void setup() {
   Serial.begin(9600);
-  delay(100);
+  delay(1000);
 }
 
 void loop() {
   Serial.println("yes");
-  delay(1000);
+  delay(100);
 }
