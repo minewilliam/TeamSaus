@@ -1,12 +1,25 @@
 #include <Arduino.h>
 #include <LibRobus.h>
+float valeur;
+float valeur1;
 
 void setup() {
-  Serial.begin(9600);
+ 
+  BoardInit();
   delay(1000);
+  ENCODER_ReadReset(RIGHT);
+
 }
 
 void loop() {
-  Serial.println("william");
-  delay(1000);
+MOTOR_SetSpeed(RIGHT, 0.9);
+MOTOR_SetSpeed(LEFT, 0.9);
+valeur= ENCODER_Read(RIGHT);
+valeur1=ENCODER_Read(LEFT);
+if (millis()==10000){
+  Serial.println(valeur/3200);
+  Serial.println(valeur1/3200);
+delay(5000);
+}
+
 }
